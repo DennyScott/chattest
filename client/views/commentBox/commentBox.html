@@ -1,5 +1,12 @@
 <template name="commentBox">
   <div class="comment">
-    <p class="content" >{{content}}</p>
+    <p class="content {{mine}}" contenteditable="{{mine}}">{{content}}</p>
+    <div class="text-muted text-right">
+      <small class="owner text-muted {{mine}}">{{creatorName owner}}</small> ·
+      {{#if mine}}
+        <small><a href="/" class="remove">Remove</a></small> ·
+      {{/if}}
+      <small>{{showTime updated_at}}</small>
+    </div>
   </div>
 </template>
