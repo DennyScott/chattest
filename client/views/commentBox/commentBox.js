@@ -2,8 +2,9 @@ Template.commentBox.helpers({
 	
 	creatorName : function(id){
 		var owner = Meteor.users.findOne({_id: id});
-		if(owner){
-			return owner;
+		console.log(owner);
+		if(typeof owner !== 'undefined'){
+			return displayName(owner);
 		}else{
 			return 'Anonymous'
 		}
