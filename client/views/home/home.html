@@ -1,14 +1,47 @@
 <head>
-  <title>winnipegjs</title>
+  <title>Meteor Comments</title>
+  <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <div class="container">
+    <header>
+      <div class="page-header text-center">
+        <h3><span class="visible-lg-inline">Meteor</span> Comments</h3>
+        
+      </div>
+      {{> commentInput}}
+    </header>
 
-  {{> hello}}
+    {{> commentBoxes}}
+
+    <footer>
+      <hr/>
+      <p class="text-muted text-center"><small>Developed by <a href="http://ming.today">Ming</a>.</small></p>
+    </footer>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="commentInput">
+  <section id="comment-input">
+    <p>Hi{{creatorName}}</p>
+    <p><textarea rows="1" class="form-control"></textarea></p>
+    <p class="text-right">
+      <button class="btn btn-primary">Add a comment</button>
+    </p>
+  </section>
+</template>
+
+<template name="commentBoxes">
+  <section class="comments">
+    {{#each comments}}
+      {{> commentBox}}
+    {{/each}}
+  </section>
+</template>
+
+<template name="commentBox">
+  <div class="comment">
+    <p class="content" >{{content}}</p>
+  </div>
 </template>
