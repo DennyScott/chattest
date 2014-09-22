@@ -26,7 +26,8 @@ Template.commentBox.helpers({
 });
 
 Template.commentBox.events({
-	'click .remove' : function(){
+	'click .remove' : function(e){
+		e.preventDefault();
 		Comments.remove({_id: this._id});
 	}
 })

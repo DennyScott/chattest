@@ -1,5 +1,11 @@
 Comments = new Mongo.Collection('comments');
 
+Comments.allow({
+	remove: function(userId, comment){
+		return userId === comment.owner;
+	}
+});
+
 Meteor.methods({
 	createComment : function(commentContent, userId) {
 		var timeNow = new Date();
